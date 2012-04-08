@@ -1,16 +1,15 @@
-========================
-HOW TO USE THIS TEMPLATE
-========================
+I prefer Liquibase DB evolutions to play 2.0 Evolutions mechanism
+This is simple play 2.0 plugin for liquibase usage.
 
-* install sbt 0.11.2  if you do not have it already. You can get it from here: https://github.com/harrah/xsbt/wiki/Getting-Started-Setup
+Suppose main script files for all DBs used are at conf/liquibase/--dbName--/modules.xml
 
-* execute 'sbt' and then `help play` for play specific commands
+Use contexts in your scripts to manage test and prod data and schema. Available contexts are:
+ 1. "test" - for test mode
+ 2. "dev" - for dev mode
+ 3. "prod" - for production mode
 
-* execute `sbt` and then `compile` to build the project
+In dev and production mode use applyLiquibase.<dbName>=true properties to apply scripts.
 
-* execute `sbt` and then 'run' to run the built-in development server
-
-* onece the development server is running, documentation is available at http://localhost:9000/@documentation
-
+Simply publish-local with sbt and add dependency to your play 2.0 project "play" %% "play20-liquibase" % "1.0"
 
 
